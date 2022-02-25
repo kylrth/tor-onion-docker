@@ -11,6 +11,8 @@ services:
     environment:
       SERVICE_PORT: "nginx:80"
     volumes:
+      # this is where the public/private keys for your onion address are kept.
+      # back it up and keep it safe!
       - "./data/onionserver:/var/lib/tor/service"
 
   nginx:
