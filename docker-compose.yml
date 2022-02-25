@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  onionserver:
+    image: onionserver
+    build:
+      context: .
+    depends_on:
+      - nginx
+    restart: unless-stopped
+    environment:
+      SERVICE_PORT: "nginx:80"
+    volumes:
+      - "./data/onionserver:/var/lib/tor/service"
+
+  nginx:
+    # this can be whatever service you want. NGINX is the example here.
+    image: nginx:1.21.6-alpine
+    restart: unless-stopped
+    volumes:
+      - "./data/nginx:/etc/nginx/conf.d:ro"
+      - "./data/www:/etc/www:ro"
