@@ -8,7 +8,6 @@ RUN chown -R 1000:1000 /var/lib/tor
 USER 1000
 
 COPY torrc /etc/torrc
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/tor", "-f", "/etc/torrc"]
 
 EXPOSE 80

@@ -4,6 +4,3 @@ Log notice stdout
 SocksPort 0
 
 DataDirectory /var/lib/tor
-
-HiddenServiceDir /var/lib/tor/service
-HiddenServicePort 80 SERVICECONTAINER  # replaced with SERVICE_PORT env var
